@@ -1,0 +1,1 @@
+# m2-model-collection-module
