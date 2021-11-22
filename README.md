@@ -20,18 +20,18 @@
     1. Simple model
     2. EAV model
 ## Understanding the flow of schema and data scripts
-### Simply put, the role of schema scripts is to create a database structure supporting your module logic.
+- Simply put, the role of **schema scripts** is to create a **database structure** supporting your module logic.
 - For example, **creating a table** where our entities would persist their data.
-### The role of the data scripts is to manage the data within existing tables, usually in the form of adding some sample data during module installation.
+- The role of the **data scripts** is to **manage the data within existing tables**, usually in the form of adding some **sample data during module installation**.
 - For the **first time**, we run `php bin/magento setup:upgrade` against our module; while it still has no entries under `setup_module` table, magento will execute the files within the module `Setup` folder in following order:
-### InstallSchema.php
-### UpgradeSchema.php
-### InstallData.php
-### UpgradeData.php
+    InstallSchema.php
+    UpgradeSchema.php
+    InstallData.php
+    UpgradeData.php
 - Every **subsequent upper module version** number change, followed by the console `php bin/magento setup:upgrade` command, would result in the following files being run in the order as listed:
-### UpgradeSchema.php
-### UpgradeData.php
+    UpgradeSchema.php
+    UpgradeData.php
 - Additionally, Magento would record the **upped version number** under the `setup_module` database.
-### Magento will only trigger install or upgrade scripts when the version number in the database is less than the version number in the module.xml file.
+- Magento will only trigger **install or upgrade scripts** when the **version number in the database** is less than the **version number in the module.xml file**.
 
 
