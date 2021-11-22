@@ -3,15 +3,15 @@
 - Though the underlying mechanism still comes down to SQL, we are now **dealing strictly with objects**.
 - This makes our **application code** more **readable**, **manageable**, and **isolated** from **vendor-specific SQL** differences.
 - Following are **three types of classes** working together to allow us **full entity data management**, from **loading**, **saving**, **deleting**, and **listing** entities.
-## 1. Model
+### 1. Model
 - The majority of our **data access and management** will be done via **PHP classes** called **Magento models**.
 - Models themselves don't contain any code for communicating with the database.
 - Calling **load**, **save** or **delete** methods on models get **delegated to resource classes**, as they are the ones to actually **read**, **write** and **delete** data from the database. 
-## 2. Resource
+### 2. Resource
 - The **database communication part** is decoupled into its own **PHP class** called **resource class**.
 - Each model is then assigned a resource class.
 - Theoretically, with enough knowledge, it is possible to write new **resource classes** for **various database vendors**.
-## 3. Collection
+### 3. Collection
 - Next to the **model and resource classes**, we have **collection classes**.
 - We can think of a **collection** as an **array of individual model instances**.
 - On the **base level**, **collections** extend from the `\Magento\Framework\Data\Collection` class, which implements `\IteratorAggregate` and `\Countable` from **Standard PHP Library (SPL)** and a few other **Magento-specific classes**.
