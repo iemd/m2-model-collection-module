@@ -15,7 +15,7 @@
 - Next to the **model and resource classes**, we have **collection classes**.
 - We can think of a **collection** as an **array of individual model instances**.
 - On the **base level**, **collections** extend from the `\Magento\Framework\Data\Collection` class, which implements `\IteratorAggregate` and `\Countable` from **Standard PHP Library (SPL)** and a few other **Magento-specific classes**.
-### More often than not, we look at model and resource as a single unified thing, thus simply calling it a model.
+#### More often than not, we look at model and resource as a single unified thing, thus simply calling it a model.
 - Magento deals with **two types of models**, which we might categorize as:
     1. Simple model
     2. EAV model
@@ -24,13 +24,13 @@
 - For example, **creating a table** where our entities would persist their data.
 - The role of the **data scripts** is to **manage the data within existing tables**, usually in the form of adding some **sample data during module installation**.
 - For the **first time**, we run `php bin/magento setup:upgrade` against our module; while it still has no entries under `setup_module` table, magento will execute the files within the module `Setup` folder in following order:
-    InstallSchema.php
-    UpgradeSchema.php
-    InstallData.php
-    UpgradeData.php
+    - InstallSchema.php
+    - UpgradeSchema.php
+    - InstallData.php
+    - UpgradeData.php
 - Every **subsequent upper module version** number change, followed by the console `php bin/magento setup:upgrade` command, would result in the following files being run in the order as listed:
-    UpgradeSchema.php
-    UpgradeData.php
+    - UpgradeSchema.php
+    - UpgradeData.php
 - Additionally, Magento would record the **upped version number** under the `setup_module` database.
 - Magento will only trigger **install or upgrade scripts** when the **version number in the database** is less than the **version number in the module.xml file**.
 
