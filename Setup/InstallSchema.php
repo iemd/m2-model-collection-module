@@ -29,7 +29,7 @@ class InstallSchema implements InstallSchemaInterface
 
                     $setup->getConnection()->createTable($table);
             /* 
-            * Employee entity table foggyline_office_employee_entity (EAV mpdel) 
+            * Employee entity table foggyline_office_employee_entity (EAV model) 
             */
             $employeeEntity = \Foggyline\Office\Model\Employee::ENTITY;
             $table = $setup->getConnection()->newTable($setup->getTable($employeeEntity . '_entity'))
