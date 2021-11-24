@@ -33,5 +33,14 @@
     - UpgradeData.php
 - Additionally, Magento would record the **upped version number** under the `setup_module` database.
 - Magento will only trigger **install or upgrade scripts** when the **version number in the database** is less than the **version number in the module.xml file**.
+## Important Points
+- **EAV entity type** is stored in the `entity_type_code` column within the `eav_entity_type` table.
+- **EAV model** scatter their data across **several tables**, **three at a minimum**.
+- The table `foggyline_office_employee_entity` that we just created is one of them.
+- The other one is the core Magento `eav_attribute` table.
+- The **third table** is not a single table, rather **a list of multiple tables**; one for each **EAV type**.
+- These tables are the result of our install script.
+- The name of these **attribute value tables** come from a **simple formula**, which says `{name of the entity table}+{_}+{eav_attribute.backend_type value}`.
+- It is a good practice to use `store_id` with your **EAV entities** to **scope the data** for a possible **multi-store setup**.
 
 
